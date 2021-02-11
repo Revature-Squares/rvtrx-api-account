@@ -78,7 +78,7 @@ namespace RVTR.Account.Testing.Tests
     [Fact]
     public void Test_Create_Account_Profile_Creation()
     {
-      AccountModel account = new AccountModel("jim","jimmy", "abcd@gmail.com"); //bad name given (lower case first lettter)
+      AccountModel account = new AccountModel("Jim","Jimmy", "abcd@gmail.com");
       var profile = account.Profiles.ToList().Last();
 
       Assert.IsType<ProfileModel>(profile);
