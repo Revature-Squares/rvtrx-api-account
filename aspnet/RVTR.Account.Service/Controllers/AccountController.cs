@@ -50,7 +50,7 @@ namespace RVTR.Account.Service.Controllers
         // Instead of directly deleting by passed ID, search for account (& it's ID) from passed email first
         AccountModel accountModel = await _unitOfWork.Account.SelectByEmailAsync(email);
 
-        await _unitOfWork.Account.DeleteAsync(accountModel.Id);
+        await _unitOfWork.Account.DeleteAsync(accountModel.EntityID);
         await _unitOfWork.CommitAsync();
 
 
@@ -153,7 +153,7 @@ namespace RVTR.Account.Service.Controllers
       {
         _logger.LogWarning($"This account does not exist.");
 
-        return NotFound(new ErrorObject($"Account with ID number {account.Id} does not exist"));
+        return NotFound(new ErrorObject($"Account with ID number {account.EntityID} does not exist"));
       }
 
     }

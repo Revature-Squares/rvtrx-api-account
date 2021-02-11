@@ -6,9 +6,8 @@ namespace RVTR.Account.Domain.Models
   /// <summary>
   /// Represents the _Profile_ model
   /// </summary>
-  public class ProfileModel : IValidatableObject
+  public class ProfileModel : AEntity, IValidatableObject
   {
-    public int Id { get; set; }
 
     [Required(ErrorMessage = "Email address required")]
     [EmailAddress(ErrorMessage = "must be a real email address.")]

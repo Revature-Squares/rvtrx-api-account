@@ -6,10 +6,8 @@ namespace RVTR.Account.Domain.Models
   /// <summary>
   /// Represents the _Account_ model
   /// </summary>
-  public class AccountModel : IValidatableObject
+  public class AccountModel : AEntity, IValidatableObject
   {
-    public int Id { get; set; }
-
     public AddressModel Address { get; set; }
 
     [Required(ErrorMessage = "Email address required")]

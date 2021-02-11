@@ -13,7 +13,7 @@ namespace RVTR.Account.Testing.Tests
       {
         new PaymentModel()
         {
-          Id = 0,
+          EntityID = 0,
           CardName = "Name",
           CardNumber = "4234123412341234",
           SecurityCode = "111",
@@ -40,7 +40,7 @@ namespace RVTR.Account.Testing.Tests
     {
       PaymentModel payment = new PaymentModel()
       {
-        Id = 0,
+        EntityID = 0,
         CardName = "Name",
         CardNumber = "abc", //bad card number given
         SecurityCode = "111",

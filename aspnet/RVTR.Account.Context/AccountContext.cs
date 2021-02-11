@@ -18,33 +18,33 @@ namespace RVTR.Account.Context
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      modelBuilder.Entity<AccountModel>().HasKey(e => e.Id);
-      modelBuilder.Entity<AddressModel>().HasKey(e => e.Id);
-      modelBuilder.Entity<PaymentModel>().HasKey(e => e.Id);
-      modelBuilder.Entity<ProfileModel>().HasKey(e => e.Id);
+      modelBuilder.Entity<AccountModel>().HasKey(e => e.EntityID);
+      modelBuilder.Entity<AddressModel>().HasKey(e => e.EntityID);
+      modelBuilder.Entity<PaymentModel>().HasKey(e => e.EntityID);
+      modelBuilder.Entity<ProfileModel>().HasKey(e => e.EntityID);
       modelBuilder.Entity<AccountModel>().HasData
       (
         new AccountModel
         {
-          Id = -1,
+          EntityID = -1,
           Name = "David Dowd",
           Email = "ddowd97@gmail.com"
         },
         new AccountModel()
         {
-          Id = 1,
+          EntityID = 1,
           Name = "JonnyCode",
           Email = "jonsledge39@gmail.com"
         },
         new AccountModel()
         {
-          Id = 2,
+          EntityID = 2,
           Name = "Richard Noel",
           Email = "richard.noel@revature.net"
         },
         new AccountModel()
         {
-          Id = 3,
+          EntityID = 3,
           Name = "Mr. Sun",
           Email = "sunzh95@gmail.com"
         }
@@ -53,7 +53,7 @@ namespace RVTR.Account.Context
       (
         new PaymentModel()
         {
-          Id = -1,
+          EntityID = -1,
           CardExpirationDate = new DateTime(),
           CardNumber = "1234123412341234",
           CardName = "Visa",
@@ -62,7 +62,7 @@ namespace RVTR.Account.Context
         },
         new PaymentModel()
         {
-          Id = 1,
+          EntityID = 1,
           AccountModelId = 1,
           CardExpirationDate = new System.DateTime(2020, 08, 31),
           CardNumber = "4111111111111111",
@@ -71,7 +71,7 @@ namespace RVTR.Account.Context
         },
         new PaymentModel()
         {
-          Id = 2,
+          EntityID = 2,
           AccountModelId = 2,
           CardExpirationDate = new System.DateTime(9999, 01, 01),
           CardNumber = "9999999999999999",
@@ -80,7 +80,7 @@ namespace RVTR.Account.Context
         },
         new PaymentModel()
         {
-          Id = 3,
+          EntityID = 3,
           AccountModelId = 3,
           CardExpirationDate = new System.DateTime(2020, 12, 01),
           CardNumber = "1234567887654321",
@@ -92,7 +92,7 @@ namespace RVTR.Account.Context
       (
         new AddressModel()
         {
-          Id = -1,
+          EntityID = -1,
           City = "City",
           Country = "USA",
           PostalCode = "21345",
@@ -102,7 +102,7 @@ namespace RVTR.Account.Context
         },
         new AddressModel()
         {
-          Id = 1,
+          EntityID = 1,
           AccountId = 1,
           City = "Austin",
           Country = "USA",
@@ -112,7 +112,7 @@ namespace RVTR.Account.Context
         },
         new AddressModel()
         {
-          Id = 2,
+          EntityID = 2,
           AccountId = 2,
           City = "Seattle",
           Country = "USA",
@@ -122,7 +122,7 @@ namespace RVTR.Account.Context
         },
         new AddressModel()
         {
-          Id = 3,
+          EntityID = 3,
           AccountId = 3,
           City = "West Lafayette",
           Country = "USA",
@@ -135,7 +135,7 @@ namespace RVTR.Account.Context
       (
         new ProfileModel()
         {
-          Id = -1,
+          EntityID = -1,
           Email = "Test@test.com",
           FamilyName = "Dowd",
           GivenName = "David",
@@ -146,7 +146,7 @@ namespace RVTR.Account.Context
         },
         new ProfileModel()
         {
-          Id = 1,
+          EntityID = 1,
           AccountModelId = 1,
           Email = "demo.camper@revature.com",
           FamilyName = "Sledge",
@@ -157,7 +157,7 @@ namespace RVTR.Account.Context
         },
         new ProfileModel()
         {
-          Id = 2,
+          EntityID = 2,
           AccountModelId = 2,
           Email = "random@email.com",
           FamilyName = "Noel",
@@ -168,7 +168,7 @@ namespace RVTR.Account.Context
         },
         new ProfileModel()
         {
-          Id = 3,
+          EntityID = 3,
           AccountModelId = 3,
           Email = "anotherone@email.com",
           FamilyName = "Sun",

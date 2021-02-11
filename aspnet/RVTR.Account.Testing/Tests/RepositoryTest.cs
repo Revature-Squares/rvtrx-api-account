@@ -8,9 +8,9 @@ namespace RVTR.Account.Testing.Tests
 {
   public class RepositoryTest : DataTest
   {
-    private readonly AccountModel _account = new AccountModel() { Id = 3 };
-    private readonly ProfileModel _profile = new ProfileModel() { FamilyName = "FN", GivenName = "GN", Id = 3, Email = "anemail@random.com", Phone = "123456789", Type = "" };
-    private readonly AddressModel _address = new AddressModel() { Id = 3, AccountId = 3 };
+    private readonly AccountModel _account = new AccountModel() { EntityID = 3 };
+    private readonly ProfileModel _profile = new ProfileModel() { FamilyName = "FN", GivenName = "GN", EntityID = 3, Email = "anemail@random.com", Phone = "123456789", Type = "" };
+    private readonly AddressModel _address = new AddressModel() { EntityID = 3, AccountId = 3 };
 
     [Fact]
     public async void Test_Repository_DeleteAsync()
@@ -19,7 +19,7 @@ namespace RVTR.Account.Testing.Tests
       {
         var profiles = new Repository<ProfileModel>(ctx);
         var profile = await ctx.Profiles.FirstAsync();
-        await profiles.DeleteAsync(profile.Id);
+        await profiles.DeleteAsync(profile.EntityID);
         Assert.Equal(EntityState.Deleted, ctx.Entry(profile).State);
       }
 
@@ -27,7 +27,7 @@ namespace RVTR.Account.Testing.Tests
       {
         var addresses = new Repository<AddressModel>(ctx);
         var address = await ctx.Addresses.FirstAsync();
-        await addresses.DeleteAsync(address.Id);
+        await addresses.DeleteAsync(address.EntityID);
         Assert.Equal(EntityState.Deleted, ctx.Entry(address).State);
       }
 
@@ -35,7 +35,7 @@ namespace RVTR.Account.Testing.Tests
       {
         var accounts = new Repository<AccountModel>(ctx);
         var account = await ctx.Accounts.FirstAsync();
-        await accounts.DeleteAsync(account.Id);
+        await accounts.DeleteAsync(account.EntityID);
         Assert.Equal(EntityState.Deleted, ctx.Entry(account).State);
       }
     }
@@ -138,7 +138,7 @@ namespace RVTR.Account.Testing.Tests
         account.Name = "name";
         accounts.Update(account);
 
-        var result = ctx.Accounts.Find(account.Id);
+        var result = ctx.Accounts.Find(account.EntityID);
         Assert.Equal(account.Name, result.Name);
         Assert.Equal(EntityState.Modified, ctx.Entry(result).State);
       }
@@ -151,7 +151,7 @@ namespace RVTR.Account.Testing.Tests
         profile.Email = "email";
         profiles.Update(profile);
 
-        var result = ctx.Profiles.Find(profile.Id);
+        var result = ctx.Profiles.Find(profile.EntityID);
         Assert.Equal(profile.Email, result.Email);
         Assert.Equal(EntityState.Modified, ctx.Entry(result).State);
       }
@@ -164,7 +164,7 @@ namespace RVTR.Account.Testing.Tests
         address.City = "Denver";
         addresses.Update(address);
 
-        var result = ctx.Addresses.Find(address.Id);
+        var result = ctx.Addresses.Find(address.EntityID);
         Assert.Equal(address.City, result.City);
         Assert.Equal(EntityState.Modified, ctx.Entry(result).State);
       }

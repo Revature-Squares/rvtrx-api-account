@@ -16,7 +16,7 @@ namespace RVTR.Account.Context.Repositories
     public AccountRepository(AccountContext context) : base(context) { }
 
     public override async Task<AccountModel> SelectAsync(int id) => await Db
-      .Where(x => x.Id == id)
+      .Where(x => x.EntityID == id)
       .Include(x => x.Address)
       .Include(x => x.Profiles)
       .Include(x => x.Payments)

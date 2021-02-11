@@ -7,9 +7,8 @@ namespace RVTR.Account.Domain.Models
   /// <summary>
   /// Represents the _Payment_ model
   /// </summary>
-  public class PaymentModel : IValidatableObject
+  public class PaymentModel : AEntity, IValidatableObject
   {
-    public int Id { get; set; }
 
     [Required(ErrorMessage = "Expiration date required")]
     public DateTime CardExpirationDate { get; set; }

@@ -13,7 +13,7 @@ namespace RVTR.Account.Testing.Tests
       {
         new AccountModel()
         {
-          Id = 0,
+          EntityID = 0,
           Address = new AddressModel(),
           Name = "Name",
           Payments = new List<PaymentModel>(),
