@@ -15,7 +15,8 @@ namespace RVTR.Account.Testing.Tests
         {
           EntityID = 0,
           Address = new AddressModel(),
-          Name = "Name",
+          FirstName = "FirstName",
+          LastName = "LastName",
           Payments = new List<PaymentModel>(),
           Profiles = new List<ProfileModel>(),
           Email = "test@gmail.com"
@@ -41,7 +42,7 @@ namespace RVTR.Account.Testing.Tests
     [Fact]
     public void Test_Create_AccountModel_BadEmail()
     {
-      AccountModel account = new AccountModel("Jim", "abcd"); //bad email given
+      AccountModel account = new AccountModel("Jim","jefferys", "abcd"); //bad email given
 
       var validationContext = new ValidationContext(account);
       var actual = Validator.TryValidateObject(account, validationContext, null, true);
@@ -56,7 +57,7 @@ namespace RVTR.Account.Testing.Tests
     [Fact]
     public void Test_Create_AccountModel_BadName()
     {
-      AccountModel account = new AccountModel("jim", "abcd@gmail.com"); //bad name given (lower case first lettter)
+      AccountModel account = new AccountModel("jim","jimmy", "abcd@gmail.com"); //bad name given (lower case first lettter)
 
       var validationContext = new ValidationContext(account);
       var actual = Validator.TryValidateObject(account, validationContext, null, true);

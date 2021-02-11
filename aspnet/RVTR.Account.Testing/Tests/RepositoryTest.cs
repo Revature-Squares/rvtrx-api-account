@@ -135,11 +135,13 @@ namespace RVTR.Account.Testing.Tests
         var accounts = new Repository<AccountModel>(ctx);
         var account = await ctx.Accounts.FirstAsync();
 
-        account.Name = "name";
+        account.FirstName = "firstname";
+        account.LastName = "lastname";
         accounts.Update(account);
 
         var result = ctx.Accounts.Find(account.EntityID);
-        Assert.Equal(account.Name, result.Name);
+        Assert.Equal(account.FirstName, result.FirstName);
+        Assert.Equal(account.LastName, result.LastName);
         Assert.Equal(EntityState.Modified, ctx.Entry(result).State);
       }
 
