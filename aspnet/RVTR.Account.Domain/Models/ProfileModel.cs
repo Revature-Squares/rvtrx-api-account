@@ -9,6 +9,8 @@ namespace RVTR.Account.Domain.Models
   public class ProfileModel : AEntity, IValidatableObject
   {
 
+    public bool IsAccountHolder { get; set; }
+
     [Required(ErrorMessage = "Email address required")]
     [EmailAddress(ErrorMessage = "must be a real email address.")]
     public string Email { get; set; }
@@ -32,6 +34,14 @@ namespace RVTR.Account.Domain.Models
     public string Type { get; set; }
 
     public int AccountModelId { get; set; }
+
+    public ProfileModel(string firstName, string lastName, string email, bool isAccountHolder)
+    {
+      GivenName = firstName;
+      FamilyName = lastName;
+      Email = email;
+      IsAccountHolder = isAccountHolder;
+    }
 
     [RegularExpression(@"^(http(s?):\/\/)[^\s]*$", ErrorMessage = "Image URI must be a real image URI.")]
     public string ImageUri { get; set; } = "https://bulma.io/images/placeholders/256x256.png"; //Default is bulma placeholder
