@@ -158,5 +158,18 @@ namespace RVTR.Account.Service.Controllers
 
     }
 
+    /// <summary>
+    /// Delete a profile in an account
+    /// </summary>
+    /// <param name="accountEmail"></param>
+    /// <param name="profileId"></param>
+    /// <returns></returns>
+    [HttpDelete("{accountEmail}/{profileId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteProfile(string accountEmail, int profileId)
+    {
+      // TODO: Update the profile's IsActive property to false in the associated account
+    }
   }
 }
