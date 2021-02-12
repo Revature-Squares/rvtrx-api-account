@@ -36,6 +36,7 @@ namespace RVTR.Account.Domain.Models
 
     public int AccountModelId { get; set; }
 
+    public ProfileModel(){}
     public ProfileModel(string firstName, string lastName, string email, bool isAccountHolder)
     {
       GivenName = firstName;

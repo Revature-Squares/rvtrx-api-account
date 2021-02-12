@@ -27,25 +27,29 @@ namespace RVTR.Account.Context
         new AccountModel
         {
           EntityId = -1,
-          Name = "David Dowd",
+          FirstName = "David",
+          LastName = "Dowd",
           Email = "ddowd97@gmail.com"
         },
         new AccountModel()
         {
           EntityId = 1,
-          Name = "JonnyCode",
+          FirstName = "David",
+          LastName = "Dowd",
           Email = "jonsledge39@gmail.com"
         },
         new AccountModel()
         {
           EntityId = 2,
-          Name = "Richard Noel",
+          FirstName = "David",
+          LastName = "Dowd",
           Email = "richard.noel@revature.net"
         },
         new AccountModel()
         {
           EntityId = 3,
-          Name = "Mr. Sun",
+          FirstName = "David",
+          LastName = "Dowd",
           Email = "sunzh95@gmail.com"
         }
       );
