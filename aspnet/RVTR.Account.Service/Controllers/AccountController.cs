@@ -169,7 +169,17 @@ namespace RVTR.Account.Service.Controllers
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteProfile(string accountEmail, int profileId)
     {
-      // TODO: Update the profile's IsActive property to false in the associated account
+      _logger.LogDebug("Deleting a profile in an account (sets its IsActive property to false)...");
+
+      AccountModel accountModel = await _unitOfWork.Account.SelectByEmailAsync(accountEmail);
+
+      // TODO: Return a bad response if the profile's IsAccountHolder property is set to true (with a relevant error message)
+      accountModel.Profiles.Find(p => p.EntityId == profileId).IsActive = false;
+
+      _unitOfWork.Account.Update(accountModel);
+      await _unitOfWork.CommitAsync();
+
+      return Accepted(accountModel);
     }
   }
 }
