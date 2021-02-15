@@ -13,7 +13,7 @@ namespace RVTR.Account.Context.Repositories
   /// <typeparam name="TEntity"></typeparam>
   public class AccountRepository
   {
-    private AccountContext _context;
+    private readonly AccountContext _context;
     public AccountRepository(AccountContext context)
     {
       _context = context;
